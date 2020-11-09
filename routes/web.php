@@ -18,3 +18,10 @@ Route::get('/read', function () {
     foreach ($staff->photos as $photo)
         echo $photo->path;
 });
+
+Route::get('/update', function () {
+    $staff = Staff::find(1);
+    $photo = $staff->photos()->whereId(1)->first();
+    $photo->path = 'changed.jpg';
+    $photo->save();
+});
