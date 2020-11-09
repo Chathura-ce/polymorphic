@@ -25,3 +25,8 @@ Route::get('/update', function () {
     $photo->path = 'changed.jpg';
     $photo->save();
 });
+
+Route::get('/delete', function () {
+    $staff = Staff::find(1);
+     $staff->photos()->whereId(1)->delete();
+});
